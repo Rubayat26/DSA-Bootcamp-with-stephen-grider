@@ -8,6 +8,31 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    let sortedStringA = shortenSortedString(stringA);
+    let sortedStringB = shortenSortedString(stringB);
+    
+    if (sortedStringA.length !== sortedStringB.length){
+        return false;
+
+    } else if (sortedStringA !== sortedStringB){
+        return false
+
+    } else {
+        return true
+    }
+
+
+
+
+    function shortenSortedString(str){
+    let shortString  = str.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g,'');
+    
+    let sortedString = shortString.split('').sort().join('')
+    
+    return sortedString;
+
+    }
+}
 
 module.exports = anagrams;
